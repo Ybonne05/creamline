@@ -1,40 +1,77 @@
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(MaterialApp(
+void main() => runApp(MaterialApp(
     home:Scaffold  (
-      appBar: AppBar(
-        title: Center(
-          child: Text('CREAMLINE',
-            style: TextStyle(
-              fontWeight: FontWeight.bold,
-            ),
-          ),
+     appBar: AppBar(
+       title: Text('User Profile',
+         style: TextStyle(
+         fontWeight: FontWeight.bold,
+         ),
+       ),
+       backgroundColor: Colors.pink[300],
+       centerTitle: true,
+     ),
+      body: Padding(
+          padding: EdgeInsets.all(20.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              SizedBox(height: 10.0,),
+              Text(
+                'NAME :',
+                style: TextStyle(
+                  fontSize: 20.0,
+                  fontWeight: FontWeight.bold,
+                  letterSpacing: 2.0,
+                  height: 3.0,
+                ),
+              ),
+              Text(
+                'Ybonne B. Legaspi',
+                style: TextStyle(
+                  fontSize: 20.0,
+                  fontWeight: FontWeight.bold,
+                  letterSpacing: 2.0,
+                ),
+              ),
+              SizedBox(height: 30.0,),
+              Text(
+                'YEAR :',
+                style: TextStyle(
+                  fontSize: 20.0,
+                  fontWeight: FontWeight.bold,
+                  letterSpacing: 2.0,
+                ),
+              ),
+              Text(
+                '4TH YEAR',
+                style: TextStyle(
+                  fontSize: 20.0,
+                  fontWeight: FontWeight.bold,
+                  letterSpacing: 2.0,
+                ),
+              ),
+              SizedBox(height: 30.0,),
+              Text(
+                'Email :',
+                style: TextStyle(
+                  fontSize: 20.0,
+                  fontWeight: FontWeight.bold,
+                  letterSpacing: 2.0,
+                ),
+              ),
+              Text(
+                'ybonnelegaspi0823@gmail.com',
+                style: TextStyle(
+                  fontSize: 20.0,
+                  fontWeight: FontWeight.bold,
+                  letterSpacing: 1.0,
+                ),
+              ),
+            ],
         ),
-        backgroundColor: Colors.pink[300],
       ),
-      body: Center(
-        child: Image.network('https://www.pinoy-entrepreneur.com/wp-content/uploads/2010/10/creamline_logo.jpg'),
-        //Text(
-        //  'This is my App',
-        // style: TextStyle(
-        // fontSize: 30.0,
-        //fontWeight: FontWeight.bold,
-        //fontFamily:  'Raleway',
-        //color: Colors.black87,
-          ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: (){},
-//       child: Text('Click It',
-//       style: TextStyle(
-//       fontWeight: FontWeight.bold,
-        backgroundColor: Colors.pink[200],
-        child: Icon(
-            Icons.add,
-            color: Colors.black87,
-            ),
-          ),
-        ),
-      ),
-    );
-}
+    ),
+  ),
+);
+

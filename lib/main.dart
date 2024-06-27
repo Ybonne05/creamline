@@ -4,12 +4,13 @@ import 'package:flutterapps/pages/dashboard.dart';
 import 'package:flutterapps/pages/menu.dart';
 
 void main() => runApp(MaterialApp(
-    routes: {
-      '/' : (context) => Dashboard(),
-      '/menu' : (context) => Menu(),
-      '/profile' : (context) => Home(),
-    },
-  ));
+  initialRoute: "/menu",
+  routes: {
+    '/' : (context) => Dashboard(),
+    '/menu' : (context) => Menu(),
+    '/profile' : (context) => Home(),
+  },
+));
 
 
 

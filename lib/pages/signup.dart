@@ -1,0 +1,133 @@
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+
+class Signup extends StatefulWidget {
+  const Signup({super.key});
+
+  @override
+  State<Signup> createState() => _SignupState();
+}
+
+class _SignupState extends State<Signup> {
+  final formKey = GlobalKey<FormState>();
+  String name = '';
+  String email = '';
+  String password = '';
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: Colors.grey[200],
+      body: SafeArea(
+        child: Padding(
+          padding: EdgeInsets.fromLTRB(10.0, 40.0, 10.0, 0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: <Widget>[
+              Text(
+                'Lets Get Started',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  letterSpacing: 2.0,
+                  fontSize: 20.0,
+                ),
+              ),
+              SizedBox(height: 30.0,),
+              Form(
+                key: formKey,
+                child: Column(
+                  children: <Widget>[
+                    TextFormField(
+                      maxLength: 40,
+                      decoration: InputDecoration(
+                        label: Text('Name'),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(20.0),
+                        ),
+                      ),
+                      validator: (value){
+                        if(value == null || value.isEmpty){
+                          return 'Please input your name';
+                        }
+                        if(value.length < 2){
+                          return 'It should be at least 3 letters long';
+                        }
+                        return null;
+                      },
+                      onSaved: (value){
+                        name = value!;
+                      },
+                    ),
+                    SizedBox(height: 30.0,),
+                    TextFormField(
+                      maxLength: 40,
+                      keyboardType: TextInputType.emailAddress,
+                      decoration: InputDecoration(
+                        label: Text('Email'),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(20.0),
+                        ),
+                      ),
+                      validator: (value){
+                        if(value == null || value.isEmpty){
+                          return 'Please input your email';
+                        }
+                        if(value.length < 2){
+                          return 'It should be a combination of numbers and letters';
+                        }
+                        return null;
+                      },
+                      onSaved: (value){
+                        name = value!;
+                      },
+                    ),
+                    SizedBox(height: 30.0,),
+                    TextFormField(
+                      obscureText: true,
+                      decoration: InputDecoration(
+                        label: Text('Password'),
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(20.0),
+                        ),
+                      ),
+                      validator: (value){
+                        if(value == null || value.isEmpty){
+                          return 'Please input your password';
+                        }
+                        if(value.length < 8){
+                          return 'It should be at least 8 characters';
+                        }
+                        if(value.length > 20){
+                          return 'It must be maximum of 20 characters';
+                        }
+                        return null;
+                      },
+                      onSaved: (value){
+                        name = value!;
+                      },
+                    ),
+                  ],
+                ),
+              ),
+              SizedBox(height: 25.0,),
+                ElevatedButton(onPressed: (){
+                  if(formKey.currentState!.validate()){
+                    formKey.currentState!.save();
+                    print(name);
+                    print(email);
+                    print(password);
+                  }
+                },
+                    child: Text ('Sign up'),
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.pink[100],
+                      foregroundColor: Colors.black,
+                    ),
+                ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}

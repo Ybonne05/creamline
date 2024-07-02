@@ -58,7 +58,7 @@ class _SignupState extends State<Signup> {
                         name = value!;
                       },
                     ),
-                    SizedBox(height: 30.0,),
+                    SizedBox(height: 20.0,),
                     TextFormField(
                       maxLength: 40,
                       keyboardType: TextInputType.emailAddress,
@@ -78,10 +78,10 @@ class _SignupState extends State<Signup> {
                         return null;
                       },
                       onSaved: (value){
-                        name = value!;
+                        email = value!;
                       },
                     ),
-                    SizedBox(height: 30.0,),
+                    SizedBox(height: 20.0,),
                     TextFormField(
                       obscureText: true,
                       decoration: InputDecoration(
@@ -103,13 +103,13 @@ class _SignupState extends State<Signup> {
                         return null;
                       },
                       onSaved: (value){
-                        name = value!;
+                        password = value!;
                       },
                     ),
                   ],
                 ),
               ),
-              SizedBox(height: 25.0,),
+              SizedBox(height: 50.0,),
                 ElevatedButton(onPressed: (){
                   if(formKey.currentState!.validate()){
                     formKey.currentState!.save();

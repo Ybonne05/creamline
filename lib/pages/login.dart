@@ -94,18 +94,31 @@ class _LoginState extends State<Login> {
                       Navigator.pushReplacementNamed(context, '/');
                     }
                   },
-                    child: Text ('Login'),
+                    child: Text ('Login',
+                    style: TextStyle(
+                      fontWeight: FontWeight.bold,
+                    ),
+                    ),
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.pink[100],
+                      backgroundColor: Colors.pink[200],
                       foregroundColor: Colors.black,
                     ),
                   ),
                 ],
               ),
-              SizedBox(height: 40.0,),
+              Divider(
+                height: 55.0,
+                color: Colors.black,
+                thickness: 1.0,
+              ),
+              SizedBox(height: 20.0,),
               Column(
                 children: [
-                  Text('Sign in with'),
+                  Text('Sign in with',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                  ),
+                  ),
                   SizedBox(height: 40.0,),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -121,7 +134,7 @@ class _LoginState extends State<Login> {
                   ),
                 ],
               ),
-              SizedBox(height: 30.0,),
+              SizedBox(height: 10.0,),
               Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
@@ -138,14 +151,17 @@ class _LoginState extends State<Login> {
               Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                  Text('Already have an account?'
+                  Text('Already have an account?',
+                  style: TextStyle(
+                    color: Colors.grey[700]
                   ),
-                  SizedBox(width: 5.0,),
+                  ),
+                  SizedBox(width: 30.0,),
                   InkWell(
                     child: Text(
                       'Signup here!',
                       style: TextStyle(
-                        color: Colors.orange[400]
+                        color: Colors.yellow[800]
                       ),
                     ),
                     onTap: ()=> Navigator.popAndPushNamed(context, '/signup'),

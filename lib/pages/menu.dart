@@ -15,16 +15,24 @@ class Menu extends StatefulWidget {
 
 class _MenuState extends State<Menu> {
   late Future<List<dynamic>> products;
-  fetchData() async{
-    final response = await http.get(Uri.parse('http://192.168.194.26:8080/products')
-    );
-    print(response.body);
+  Future<List<dynamic>>fetchData() async{
+    final response = await http.get
+      (Uri.parse('http://10.0.2.2:8080/products'));
+
+    final data = jsonDecode(response.body);
+    // print(data);
+    List products = <Product>[];
+
+    for (var product in data) {
+      products.add(Product.fromJson(product));
+    }
+   return products;
   }
 
   @override
   void initState() {
     super.initState();
-    fetchData();
+    products = fetchData();
   }
 
 

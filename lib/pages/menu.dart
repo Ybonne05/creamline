@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutterapps/services/Product.dart';
 import 'package:flutterapps/services/MenuCard.dart';
+import 'package:flutterapps/pages/SelectedProduct.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 
@@ -31,6 +32,7 @@ class _MenuState extends State<Menu> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
       backgroundColor: Colors.pink[50],
       appBar: AppBar(
         title: Text('Menu',
@@ -68,6 +70,15 @@ class _MenuState extends State<Menu> {
                             Text(products[index].price.toString()),
                           ],
                         ),
+                        onTap: (){
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) =>
+                                  Selectedproduct(product: products[index]),
+                            ),
+                          );
+                        },
 
                       ),
                     );

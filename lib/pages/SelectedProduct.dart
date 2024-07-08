@@ -26,7 +26,7 @@ class _SelectedproductState extends State<Selectedproduct> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-    backgroundColor: Colors.pink[50],
+    backgroundColor: Colors.pink[100],
       appBar: AppBar(
         title: Text('Order',
         style: TextStyle(
@@ -36,20 +36,47 @@ class _SelectedproductState extends State<Selectedproduct> {
         centerTitle: true,
         backgroundColor: Colors.pink[300],
       ),
-      body: Column(
+      body:
+      SafeArea(
+      child: Column(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Column(
-            children: [
-              Text(widget.product.productName),
-              Text(widget.product.description),
-            ],
-           ),
+          Container(
+            child: Padding(
+              padding: EdgeInsets.fromLTRB(0, 80.0, 0, 0),
+              child: Center(
+                child: Image(
+                  image: AssetImage('assets/creamline red.jpg'),
+                ),
+              ),
+            ),
+          ),
+          Container(
+            child: Column(
+              children: [
+                Text(widget.product.productName,
+                style: TextStyle(
+                  fontSize: 50.0,
+                  fontWeight: FontWeight.bold,
+                ),
+                ),
+                Text(widget.product.description,
+                  style: TextStyle(
+                    fontSize: 30.0,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ],
+             ),
+          ),
              Row(
                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                children: [
                  Text(
                    '₱ ${totalAmount.toString()}',
+                      style: TextStyle(
+                      fontSize: 20.0,
+                   ),
                  ),
                  Row(
                    children: [
@@ -65,9 +92,6 @@ class _SelectedproductState extends State<Selectedproduct> {
                      ),
                      Text(
                        numberOfOrders.toString(),
-                       style: TextStyle(
-                         fontSize: 20.0,
-                       ),
                      ),
                      IconButton(onPressed: (){
                        setState(() {
@@ -83,6 +107,7 @@ class _SelectedproductState extends State<Selectedproduct> {
              ),
            ],
          ),
+      ),
     );
   }
 }

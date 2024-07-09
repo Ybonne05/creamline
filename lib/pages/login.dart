@@ -16,7 +16,7 @@ class _LoginState extends State<Login> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey[200],
+      backgroundColor: Colors.pink[100],
       body: SafeArea(
         child: Padding(
           padding: EdgeInsets.fromLTRB(10.0, 40.0, 10.0, 0),
@@ -38,7 +38,11 @@ class _LoginState extends State<Login> {
                   children: <Widget>[
                     TextFormField(
                       decoration: InputDecoration(
+
                         label: Text('Email'),
+                        labelStyle: TextStyle(
+                          color: Colors.black,
+                        ),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(20.0),
                         ),
@@ -61,6 +65,9 @@ class _LoginState extends State<Login> {
                       obscureText: true,
                       decoration: InputDecoration(
                         label: Text('Password'),
+                        labelStyle: TextStyle(
+                          color: Colors.black,
+                        ),
                         border: OutlineInputBorder(
                           borderRadius: BorderRadius.circular(20.0),
                         ),
@@ -100,7 +107,7 @@ class _LoginState extends State<Login> {
                     ),
                     ),
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.pink[200],
+                      backgroundColor: Colors.pink[300],
                       foregroundColor: Colors.black,
                     ),
                   ),

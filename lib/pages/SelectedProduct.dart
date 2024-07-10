@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutterapps/services/Product.dart';
+import 'package:http/http.dart' as http;
 
 class Selectedproduct extends StatefulWidget {
   final Product product;
@@ -46,23 +47,23 @@ class _SelectedproductState extends State<Selectedproduct> {
               padding: EdgeInsets.fromLTRB(0, 80.0, 0, 0),
               child: Center(
                 child: Image(
-                  image: AssetImage('assets/creamline red.jpg'),
+                  image: AssetImage('assets/creamline-cookies-cream.jpg'),
                 ),
               ),
             ),
           ),
           Container(
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
               children: [
                 Text(widget.product.productName,
-                style: TextStyle(
-                  fontSize: 50.0,
-                  fontWeight: FontWeight.bold,
-                ),
+                  style: TextStyle(
+                    fontFamily: 'Playwrite',
+                    ),
                 ),
                 Text(widget.product.description,
                   style: TextStyle(
-                    fontSize: 30.0,
+                    fontSize: 20.0,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
@@ -73,9 +74,9 @@ class _SelectedproductState extends State<Selectedproduct> {
                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                children: [
                  Text(
-                   '₱ ${totalAmount.toString()}',
+                   '₱ ${totalAmount.toStringAsFixed(2)}',
                       style: TextStyle(
-                      fontSize: 20.0,
+                     fontSize: 30.0,
                    ),
                  ),
                  Row(
@@ -92,6 +93,9 @@ class _SelectedproductState extends State<Selectedproduct> {
                      ),
                      Text(
                        numberOfOrders.toString(),
+                       style: TextStyle(
+                         fontSize: 30.0,
+                       ),
                      ),
                      IconButton(onPressed: (){
                        setState(() {

@@ -66,16 +66,18 @@ class _MenuState extends State<Menu> {
             }
             if (snapshots.hasData) {
               List products = snapshots.data!;
-              return Padding(padding: EdgeInsets.all(3.0),
+              return Padding(padding: EdgeInsets.fromLTRB(20.0,20.0,20.0,20.0),
                 child: ListView.builder(
                   itemCount: products.length,
                   itemBuilder: (context, index){
                     return Card(
+                      clipBehavior: Clip.hardEdge,
+                      color: Colors.pink[200],
                       child: ListTile(
                         title: Column(
                           children: [
                             Text(products[index].productName),
-                            Text(products[index].price.toString()),
+
                           ],
                         ),
                         onTap: (){

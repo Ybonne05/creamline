@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutterapps/services/Product.dart';
 
+import '../pages/SelectedProduct.dart';
+
 class Menucard extends StatelessWidget {
   final Product product;
 
@@ -9,23 +11,38 @@ class Menucard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-      child: ListTile(
-        title: Column(
-        crossAxisAlignment: CrossAxisAlignment.stretch,
-        children: <Widget>[
-          Text(product.productName,
-            style: TextStyle(
-              fontSize : 20.0,
-            ),
-          ),
-          Text('${product.price}',
-            style: TextStyle(
-              color: Colors.grey[500],
-              ),
-            ),
-          ],
-        ),
 
+      clipBehavior: Clip.hardEdge,
+      color: Colors.pink[200],
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(2.0, 30.0, 2.0, 30.0),
+        child: ListTile(
+          title: Column(
+            children: [
+              Center(
+                child: Text(
+                    product.productName,
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontFamily: 'Oswald',
+                    fontSize: 17.0
+                  ),
+                ),
+              ),
+
+            ],
+          ),
+          onTap: (){
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) =>
+                    Selectedproduct(product: product),
+              ),
+            );
+          },
+
+        ),
       ),
     );
   }

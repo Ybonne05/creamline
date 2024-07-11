@@ -39,78 +39,99 @@ class _SelectedproductState extends State<Selectedproduct> {
       ),
       body:
       SafeArea(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Container(
-            child: Padding(
-              padding: EdgeInsets.fromLTRB(0, 80.0, 0, 0),
-              child: Center(
-                child: Image(
-                  image: AssetImage('assets/creamline-cookies-cream.jpg'),
+      child: Padding(
+        padding: const EdgeInsets.fromLTRB(8.0, 0, 8.0, 15.0),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Container(
+              child: Padding(
+                padding: EdgeInsets.fromLTRB(0, 80.0, 0, 0),
+                child: Center(
+                  child: Image.network(widget.product.url),
                 ),
               ),
             ),
-          ),
-          Container(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Text(widget.product.productName,
-                  style: TextStyle(
-                    fontFamily: 'Playwrite',
+            Container(
+              child: Column(
+                children: [
+                  Text(widget.product.productName,
+                    style: TextStyle(
+                      fontFamily: 'Playwrite',
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      ),
+                    textAlign: TextAlign.center,
+                  ),
+                  SizedBox(height: 40.0,),
+                  Text(widget.product.description,
+                    style: TextStyle(
+                      fontSize: 20.0,
+                      fontWeight: FontWeight.bold,
                     ),
-                ),
-                Text(widget.product.description,
+                    textAlign: TextAlign.center,
+                  ),
+                ],
+               ),
+            ),
+               Row(
+                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                 children: [
+                   Text(
+                     '₱ ${totalAmount.toStringAsFixed(2)}',
+                        style: TextStyle(
+                       fontSize: 25.0,
+                     ),
+                   ),
+                   Row(
+                     children: [
+                       IconButton(onPressed: (){
+                         setState(() {
+                           if (numberOfOrders > 1) {
+                             numberOfOrders -= 1;
+                             totalAmount = product.price * numberOfOrders;
+                           }
+                         });
+                       },
+                           icon: Icon(Icons.remove)
+                       ),
+                       Text(
+                         numberOfOrders.toString(),
+                         style: TextStyle(
+                           fontSize: 25.0,
+                         ),
+                       ),
+                       IconButton(onPressed: (){
+                         setState(() {
+                           numberOfOrders += 1;
+                           totalAmount = product.price * numberOfOrders;
+                         });
+                       },
+                           icon: Icon(Icons.add)
+                       ),
+                     ],
+                   ),
+                 ],
+               ),
+              ElevatedButton(
+                onPressed: (){
+                  Navigator.pushNamed(context, '/menu');
+                },
+                child: Text('         Add to Cart         ',
                   style: TextStyle(
-                    fontSize: 20.0,
-                    fontWeight: FontWeight.bold,
+                    fontFamily: 'Oswald',
+                    fontSize: 25.0,
+                    color: Colors.black,
                   ),
                 ),
-              ],
-             ),
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: Colors.pink[200],
+                  foregroundColor: Colors.black,
+                ),
+              ),
+             ],
           ),
-             Row(
-               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-               children: [
-                 Text(
-                   '₱ ${totalAmount.toStringAsFixed(2)}',
-                      style: TextStyle(
-                     fontSize: 30.0,
-                   ),
-                 ),
-                 Row(
-                   children: [
-                     IconButton(onPressed: (){
-                       setState(() {
-                         if (numberOfOrders > 1) {
-                           numberOfOrders -= 1;
-                           totalAmount = product.price * numberOfOrders;
-                         }
-                       });
-                     },
-                         icon: Icon(Icons.remove)
-                     ),
-                     Text(
-                       numberOfOrders.toString(),
-                       style: TextStyle(
-                         fontSize: 30.0,
-                       ),
-                     ),
-                     IconButton(onPressed: (){
-                       setState(() {
-                         numberOfOrders += 1;
-                         totalAmount = product.price * numberOfOrders;
-                       });
-                     },
-                         icon: Icon(Icons.add)
-                     ),
-                   ],
-                 ),
-               ],
-             ),
-           ],
-         ),
+        ),
       ),
     );
   }

@@ -32,7 +32,7 @@ class _HomeState extends State<Home> {
               children: <Widget>[
                 Center(
                   child: CircleAvatar(
-                    backgroundImage: AssetImage('assets/female.png'),
+                    backgroundImage: AssetImage('assets/me.jpg'),
                     backgroundColor: Colors.pink[100],
                     radius: 100.0,
                   ),
@@ -93,6 +93,23 @@ class _HomeState extends State<Home> {
                 ),
                 Text(
                   'ybonnelegaspi0823@gmail.com',
+                  style: TextStyle(
+                    fontSize: 20.0,
+                    fontWeight: FontWeight.bold,
+                    letterSpacing: 1.5,
+                  ),
+                ),
+                SizedBox(height: 30.0,),
+                Text(
+                  'Address :',
+                  style: TextStyle(
+                    fontSize: 20.0,
+                    fontWeight: FontWeight.bold,
+                    letterSpacing: 2.0,
+                  ),
+                ),
+                Text(
+                  'Pantay Pag-asa, Calaca City, Batangas',
                   style: TextStyle(
                     fontSize: 20.0,
                     fontWeight: FontWeight.bold,

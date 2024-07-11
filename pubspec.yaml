@@ -37,6 +37,7 @@ dependencies:
   cupertino_icons: ^1.0.6
   http: ^1.2.1
   flutter_spinkit: ^5.2.1
+  responsive_grid_list: ^1.4.0
 
 dev_dependencies:
   flutter_test:

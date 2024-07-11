@@ -6,7 +6,7 @@ import 'package:flutterapps/pages/menu.dart';
 import 'package:flutterapps/pages/signup.dart';
 
 void main() => runApp(MaterialApp(
-  initialRoute: "/",
+  initialRoute: "/login",
   routes: {
     '/' : (context) => Dashboard(),
     '/menu' : (context) => Menu(),

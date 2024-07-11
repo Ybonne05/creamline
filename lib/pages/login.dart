@@ -173,11 +173,40 @@ class _LoginState extends State<Login> {
                   SizedBox(height: 40.0,),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.stretch,
-                    children: [
+                    children:<Widget> [
                       ElevatedButton(onPressed: (){},
-                        child: Text ('Login with Facebook'),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget> [
+                            Icon(Icons.facebook),
+                            SizedBox(width: 5.0,),
+                            Text ('Login with Facebook',),
+                        ],
+                      ),
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: Colors.blue[800],
+                              foregroundColor: Colors.black,
+                            ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+                  SizedBox(height: 10.0,),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.stretch,
+                    children:<Widget> [
+                      ElevatedButton(onPressed: (){},
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget> [
+                            Icon(Icons.g_mobiledata),
+                            SizedBox(width: 5.0,),
+                            Text ('Login with Google',),
+                          ],
+                        ),
                         style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.blue[800],
+                          backgroundColor: Colors.redAccent[200],
                           foregroundColor: Colors.black,
                         ),
                       ),
@@ -185,24 +214,11 @@ class _LoginState extends State<Login> {
                   ),
                 ],
               ),
-              SizedBox(height: 10.0,),
-              Column(
-                crossAxisAlignment: CrossAxisAlignment.stretch,
-                children: [
-                  ElevatedButton(onPressed: (){},
-                    child: Text ('Login with Google'),
-                    style: ElevatedButton.styleFrom(
-                      backgroundColor: Colors.red[300],
-                      foregroundColor: Colors.black,
-                    ),
-                  ),
-                ],
-              ),
               SizedBox(height: 40.0,),
               Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
-                  Text('Already have an account?',
+                  Text('Dont have an account yet?',
                   style: TextStyle(
                     color: Colors.grey[700]
                   ),
@@ -221,8 +237,6 @@ class _LoginState extends State<Login> {
               ),
             ],
           ),
-          ],
-        ),
       ),
       ),
     );
